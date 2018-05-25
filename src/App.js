@@ -6,6 +6,7 @@ import firebase from 'firebase';
 import FirebaseConfig from './Config';
 import SignOut from './SignOut';
 import Materialize from "materialize-css";
+import '../node_modules/materialize-css/dist/css/materialize.css';
 
 class App extends React.Component{
     constructor(props) {

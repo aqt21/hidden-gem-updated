@@ -2,8 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 
 // Returns a list item containing the experience, position I held, date, and description.
-var ListItem = React.createClass({
-
+class ListItem extends React.Component{
 	
     render() {
 		console.log(this.props.data)
@@ -45,6 +44,6 @@ var ListItem = React.createClass({
 			// </div>
         )
     }
-});
+};
 
 export default ListItem;

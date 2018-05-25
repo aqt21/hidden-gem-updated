@@ -1,17 +1,18 @@
 // Page of information about me
 import Autocomplete from 'react-google-autocomplete';
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import $ from 'jquery';
 import './css/Home.css';
 import firebase from 'firebase';
 import Materialize from "materialize-css";
 
 // HomePage Component
-var HomePage = React.createClass({
-	getInitialState(){
-		return {aboutUs:""};
-	},
+class HomePage extends React.Component{
+    constructor(props) {
+        super(props);
+		this.state = {aboutUs:""};
+	}
 
 	// When component mounts, get the data and set the state of 'homeItem'
 	componentDidMount(){
@@ -23,8 +24,6 @@ var HomePage = React.createClass({
 				this.setState({aboutUs:snapshot.val()});
 			}
 		});
-
-		console.log(this.state.aboutUs);
 		
 		$('#home').animate({opacity: '1'});
 		 $('.chips').material_chip();
@@ -44,7 +43,7 @@ var HomePage = React.createClass({
 			}
 		  });
 
-	},
+	}
 	
 	createCookie(name,value,days) {
 		if (days) {
@@ -56,14 +55,14 @@ var HomePage = React.createClass({
 			var expires = "";
 		}
 		document.cookie = name + "=" + value + expires + "; path=/";
-	}, 
+	}
 	// Render a <HomeItem> element
 	render() {
 
 		return (
 			<div id='home'>	
 				<div className='container' id='search-box'>
-					<h1 id="homeHeader"> Hidden <img id="homeIcon" src={require("../imgs/gemicon-w.png")}></img> Gem </h1>
+					<h1 id="homeHeader"> Hidden Gem </h1>
 					<p id="homeDescription"> Discover your backyard </p>
 					
 					<form>
@@ -90,6 +89,6 @@ var HomePage = React.createClass({
 			</div>
 		);
 	}
-});
+};
 
 export default HomePage;

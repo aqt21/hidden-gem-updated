@@ -7,10 +7,11 @@ import firebase from "firebase";
 import FileUploader from 'react-firebase-file-uploader'; 
 
 // ListPage Component
-var ListPage = React.createClass({
-	getInitialState(){
-		return{listItems:[], fileName:"", isUploading:false, uploadPicUrl:"", currRefId:"", showInfo:false}
-	},
+class ListPage extends React.Component{
+    constructor(props) {
+        super(props);
+		this.state = {listItems:[], fileName:"", isUploading:false, uploadPicUrl:"", currRefId:"", showInfo:false}
+	}
 
 	// When component mounts, get the data and set the state of 'listItems'
 	componentDidMount(){
@@ -23,7 +24,7 @@ var ListPage = React.createClass({
 			}
 		});
 		$('#list').animate({opacity: '1'});
-	},
+	}
 	
 	createProduct(event) {
 		event.preventDefault();
@@ -40,38 +41,38 @@ var ListPage = React.createClass({
 		this.setState({uploadPicUrl: "", fileName: ""});
 		
 		event.target.reset();
-	},
+	}
 	
 	showProductInfo(event) {
 		$("#locationDetailsBackground").css("pointer-events","auto");
 		$("#locationDetailsBackground").animate({opacity: 0.7}, 300);
 		this.setState({currRefId: event.target.id, showInfo:true});
-	},
+	}
 	
 	handleUploadStart(){
 		this.setState({isUploading: true, fileName: $("#file-uploader").val().split('\\').pop()});
-	},
-	
+	}
+
 	handleUploadError(error){
 	  this.setState({isUploading: false});
 	  console.error(error);
-	},
+	}
 	
 	handleUploadSuccess(filename){
 	  this.setState({avatar: filename, isUploading: false});
 	  firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({uploadPicUrl: url}));
 
-	},
+	}
 	
 	hideProduct() {
 		$("#locationDetailsBackground").css("pointer-events","none");
 		$("#locationDetailsBackground").animate({opacity: 0}, 300);
 		this.setState({showInfo:false});
-	},
+	}
 	
 	removeProduct(event) {
 		this.listRef.child(event.target.id).remove();
-	},
+	}
 	
 	// Render a <ListItem> element for each element in the state
 	render() {
@@ -162,6 +163,6 @@ var ListPage = React.createClass({
 				
 		);
 	}
-});
+};
 
 export default ListPage;

@@ -5,7 +5,6 @@ import firebase from 'firebase';
 import FirebaseConfig from './Config';
 
 class SignUpPage extends React.Component {
-
 	signUp(event){
 		event.preventDefault();
 		let email = event.target.elements['email'].value;

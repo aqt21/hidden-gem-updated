@@ -2,8 +2,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-class SignUpPage extends React.Component{
-
+class SignUpItem extends React.Component{
     render() {
         return(
             <section className="container">
@@ -27,4 +26,4 @@ class SignUpPage extends React.Component{
     }
 }
 
-export default SignUpPage;
+export default SignUpItem;

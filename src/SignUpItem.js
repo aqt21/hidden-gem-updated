@@ -2,7 +2,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-class SignUpPage extends React.Componenet{
+class SignUpItem extends React.Component{
 
     render() {
         return(
@@ -27,4 +27,4 @@ class SignUpPage extends React.Componenet{
     }
 }
 
-export default SignUpPage;
+export default SignUpItem;

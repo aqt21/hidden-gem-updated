@@ -1,5 +1,6 @@
 /* App */
 
+
 #home, #map, #list, #mod, #profile {
 	opacity: 0;
 }
@@ -9,9 +10,9 @@
 	height: 100vmin;
 }
 
-footer.page-footer {
-	margin: 0 !important;
-}
+/* footer.page-footer { */
+	/* margin: 0 !important; */
+/* } */
 
 
 .children, #signin .row {
@@ -28,11 +29,15 @@ body {
 	z-index: 15;
 }
 
+#profile-icon {
+	color: white;
+}
+
 a.dropdown-button {
 	overflow: hidden;
 }
 
-.nav-wrapper, footer, .btn {
+.nav-wrapper, footer, .btn, .mod-button {
 	background-color: #6FCF97 !important;
 }
 
@@ -108,7 +113,6 @@ input[type=text]:focus:not([readonly]), input[type=email]:focus, input[type=pass
 .modal {
 	max-height: 80% !important;
 }
-
 
 /* Screen sizes */
 @media (min-width: 768px) {

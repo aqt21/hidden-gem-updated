@@ -21,7 +21,6 @@ class ListItem extends React.Component {
 		this.setState({ data: this.props.data });
 	}
 
-
 	render() {
 		return (
 			<div className="col s12 m6 l4">

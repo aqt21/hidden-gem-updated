@@ -1,5 +1,9 @@
 /* List Page */
 
+#list-container {
+	margin-top: 50px;
+}
+
 .clickable {
 	height: 100%;
 	width: 100%;
@@ -36,17 +40,19 @@
 	/* font-family: "Open Sans"; */
 }
 
-.modal-content {
-    padding: 0 !important;
+#locationDetails {
+	padding: 30px;
 }
 
 #locationInfo {
-	padding: 30px;
+	margin-top: 30px;
 }
 
 #locationImage img {
     max-height: 100%;
     max-width: 100%;
+	margin: auto;
+	display: block;
 }
 
 

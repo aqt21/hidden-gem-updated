@@ -1,12 +1,21 @@
 // Application
 import React from 'react';
 import './css/App.css';
-import { Link } from 'react-router-dom';
+
 import firebase from 'firebase';
 import FirebaseConfig from './Config';
+import { HashRouter, Route, Link, Switch, BrowserRouter } from 'react-router-dom';
 import SignOut from './SignOut';
 import Materialize from "materialize-css";
 import '../node_modules/materialize-css/dist/css/materialize.css';
+import HomePage from './HomePage';
+import MapPage from './MapPage';
+import ListPage from './ListPage';
+import ModPage from './ModPage';
+import ProfilePage from './ProfilePage';
+import SignUpPage from './SignUpPage';
+import SignInPage from './SignInPage';
+import AboutPage from './AboutPage';
 
 class App extends React.Component{
     constructor(props) {
@@ -37,10 +46,6 @@ class App extends React.Component{
 	}
 	
 	render() {
-		const childrenWithProps = React.Children.map(this.props.children, 
-			(child) => React.cloneElement(child, {
-				user: this.state.user
-			}));
 
 		// Return links and show anything inside the <App> component (children)
 		return (
@@ -80,8 +85,19 @@ class App extends React.Component{
 					</div>
 
 
-					<div className='children'>
-						{childrenWithProps}
+                    <div className='children'>
+
+                        <Switch>
+                            <Route path='/home' component={HomePage} />
+                            <Route path='/map' component={MapPage} />
+                            <Route path='/list' component={ListPage} />
+                            <Route path='/profile' component={ProfilePage} />
+                            <Route path='/sign-up' component={SignUpPage} />
+                            <Route path='/sign-in' component={SignInPage} />
+                            <Route path='/mod' component={ModPage} />
+                            <Route path='/about' component={AboutPage} />
+                        </Switch>
+
 					</div>
 
 					<footer className="page-footer">

@@ -67,19 +67,20 @@ class HomePage extends React.Component{
 					
 					<form>
 						<div className="input-field">
-						  <Autocomplete
-								style={{width: '90%'}}
-								onPlaceSelected={(place) => {
-									console.log(place);
-								  this.createCookie("lat", place.geometry.location.lat());
-								  this.createCookie("lng", place.geometry.location.lng());
-								  console.log(place.geometry.location.lat());
-								  console.log(place.geometry.location.lng());
-								  console.log(document.cookie);
-								}}
-								types={['address']}
-								componentRestrictions={{country: "usa"}}
-							/>
+                            <Autocomplete
+                                style={{ width: '90%' }}
+                                onPlaceSelected={(place) => {
+                                    console.log(place);
+                                    this.createCookie("lat", place.geometry.location.lat());
+                                    this.createCookie("lng", place.geometry.location.lng());
+                                    console.log(place.geometry.location.lat());
+                                    console.log(place.geometry.location.lng());
+                                    console.log(document.cookie);
+                                }}
+                                types={['address']}
+                                componentRestrictions={{ country: "usa" }}
+                            />
+
 						</div>
 						<div id="homeWrapper">
 							<a className="waves-effect waves-light btn" id="homeBtn" ><Link className='link' activeClassName='active' to='map'>Find your Hidden Gems</Link></a>

@@ -3,7 +3,6 @@ import React from 'react';
 import $ from 'jquery';
 
 class SignUpItem extends React.Component{
-
     render() {
         return(
             <section className="container">

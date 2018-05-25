@@ -5,6 +5,7 @@ import './css/Map.css';
 import firebase from 'firebase';
 import $ from 'jquery';
 import MapItem from './MapItem';
+import InfoWindowMap from './InfoWindow';
 import { compose, withProps } from "recompose"
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps"
 
@@ -41,40 +42,36 @@ class MapPage extends React.Component{
 	
 	// Render a <MapItem> element for each element in the state
     render() {
-		const { compose, withProps, withStateHandlers } = require("recompose");
+        const { compose, withProps, withStateHandlers } = require("recompose");
 
-		const {
-		  withScriptjs,
-		  withGoogleMap,
-		  GoogleMap,
-		  Marker,
-		  InfoWindow,
-		} = require("react-google-maps");
+        const {
+            withScriptjs,
+            withGoogleMap,
+            GoogleMap,
+            Marker,
+            InfoWindow,
+        } = require("react-google-maps");
 
-		const MapWithAMakredInfoWindow = compose(
-		  withStateHandlers(() => ({
-			isOpen: false,
-		  }), {
-			onToggleOpen: ({ isOpen }) => () => ({
-			  isOpen: !isOpen,
-			})
-		  }),
-		  withScriptjs,
-		  withGoogleMap
-		)(props =>
+        const MapWithAMakredInfoWindow = compose(
+            withStateHandlers(() => ({
+                isOpen: false,
+            }), {
+                    onToggleOpen: ({ isOpen }) => () => ({
+                        isOpen: !isOpen,
+                    })
+                }),
+            withScriptjs,
+            withGoogleMap
+        )(props =>
 		  <GoogleMap
 			defaultZoom={12}
                 defaultCenter={{ lat: parseFloat(this.getCookie("latLng").split(":")[0]), lng: parseFloat(this.getCookie("latLng").split(":")[1])}}
 		  >
 		  {Object.keys(this.state.mapItems).map((d) => {
-			return (<Marker
-			  key={d}
-			  position={{ lat: this.state.mapItems[d].latitude, lng: this.state.mapItems[d].longitude}}
-			  onClick={props.onToggleOpen}
-			>
-			  {props.isOpen && <InfoWindow key={d} onCloseClick={props.onToggleOpen}>
-			  </InfoWindow>}
-			</Marker>)
+                    return (
+
+                   <InfoWindowMap key={d} data={this.state.mapItems[d]} />
+            )
 		  })}
 		  </GoogleMap>
 		)
@@ -82,7 +79,7 @@ class MapPage extends React.Component{
 			<div id='map'>
 				  <MapWithAMakredInfoWindow
 					  isMarkerShown = {true}
-					  googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEm_NvS2jiGeyWkLWREjPhKW43h1QZAu0"
+                      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWO29pGSeokNJMU6U-GHUC-5TlnKs0rqE"
 					  loadingElement={<div style={{ height: '100%', width: '100%' }} />}
 					  containerElement={<div style={{ height: '100%', width: '100%' }} />}
 					  mapElement={<div style={{ height: '100%', width: '100%' }} />}

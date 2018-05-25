@@ -13,7 +13,7 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "reac
 class MapPage extends React.Component{
     constructor(props) {
         super(props);
-		this.state = {mapItems:[], fileName:"", isUploading:false, uploadPicUrl:""}
+        this.state = { mapItems: [], fileName: "", isUploading: false, uploadPicUrl: ""}
 	}
 
 	// When component mounts, get the data and set the state of 'mapItems'
@@ -23,7 +23,7 @@ class MapPage extends React.Component{
 			if(snapshot.val()){
 				this.setState({mapItems:snapshot.val()});
 			}
-		});
+        });
 		$('#map').animate({opacity: '1'});
 	}
 	
@@ -40,7 +40,7 @@ class MapPage extends React.Component{
 	}
 	
 	// Render a <MapItem> element for each element in the state
-	render() {
+    render() {
 		const { compose, withProps, withStateHandlers } = require("recompose");
 
 		const {
@@ -64,7 +64,7 @@ class MapPage extends React.Component{
 		)(props =>
 		  <GoogleMap
 			defaultZoom={12}
-			defaultCenter={{ lat: parseFloat(this.getCookie("lat")), lng: parseFloat(this.getCookie("lng"))}}
+                defaultCenter={{ lat: parseFloat(this.getCookie("latLng").split(":")[0]), lng: parseFloat(this.getCookie("latLng").split(":")[1])}}
 		  >
 		  {Object.keys(this.state.mapItems).map((d) => {
 			return (<Marker

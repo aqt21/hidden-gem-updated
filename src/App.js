@@ -88,6 +88,7 @@ class App extends React.Component{
                     <div className='children'>
 
                         <Switch>
+                            <Route exact path='/' component={HomePage} />
                             <Route path='/home' component={HomePage} />
                             <Route path='/map' component={MapPage} />
                             <Route path='/list' component={ListPage} />

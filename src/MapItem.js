@@ -1,10 +1,11 @@
 import React from 'react';
 
 // Returns a MapItem object showing its title, image/link, and description.
-var MapItem = React.createClass({
-	getInitialState(){
-		return{expanded:false}
-	},
+class MapItem extends React.Component{
+    constructor(props) {
+        super(props);
+		this.state = {expanded:false}
+	}
 
 	handleClick(){
 		console.log(this.props.data.imgurl);
@@ -18,7 +19,7 @@ var MapItem = React.createClass({
 			console.log('open');
 		}
 	
-	},
+	}
 	
     render() {
 		return(      
@@ -49,6 +50,6 @@ var MapItem = React.createClass({
 			</div>	
         )
     }
-});
+};
 
 export default MapItem;

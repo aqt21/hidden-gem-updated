@@ -1,18 +1,16 @@
 // Application
 import React from 'react';
 import './css/App.css';
-import { Link } from 'react-router';
-import '../node_modules/font-awesome/css/font-awesome.css';
-import '../node_modules/materialize-css/dist/css/materialize.css';
+import { Link } from 'react-router-dom';
 import firebase from 'firebase';
 import FirebaseConfig from './Config';
 import SignOut from './SignOut';
 import Materialize from "materialize-css";
-import '../node_modules/material-icons/css/material-icons.css';
 
 class App extends React.Component{
-	getInitialState(){
-		return{checked:false, user:null, authOption:'sign-in'}
+    constructor(props) {
+        super(props);
+		this.state = {checked:false, user:null, authOption:'sign-in'}
 	}
 	
 	componentWillMount(){

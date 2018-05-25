@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './css/Home.css';
 
 // Returns a picture, contact information, and a bio
-var HomeItem = React.createClass({
+class HomeItem extends React.Component{
     render() {
     	//<img src={this.props.img} alt='background'/>
 		return(
@@ -16,6 +16,6 @@ var HomeItem = React.createClass({
 			</div>
         )
     }
-});
+};
 
 export default HomeItem;

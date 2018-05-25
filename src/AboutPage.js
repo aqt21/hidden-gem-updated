@@ -8,9 +8,10 @@ import firebase from 'firebase';
 import Materialize from "materialize-css";
 
 // HomePage Component
-class HomePage extends React.Component{
-	getInitialState(){
-		return {aboutUs:""};
+class AboutPage extends React.Component{
+    constructor(props) {
+        super(props);
+		this.state = {aboutUs:""};
 	}
 
 	// When component mounts, get the data and set the state of 'homeItem'
@@ -45,7 +46,7 @@ class HomePage extends React.Component{
 							<div className="col s4">
 							  <div className="card medium">
 								<div className="card-image">
-								  <img src={require("../imgs/googleExample.png")}></img>
+								  <img src={require("./googleExample.png")}></img>
 								  
 								</div>
 								<div className="card-content">
@@ -57,7 +58,7 @@ class HomePage extends React.Component{
 							<div className="col s4">
 							  <div className="card medium">
 								<div className="card-image">
-								  <img src={require("../imgs/yelpExample.png")}></img>
+								  <img src={require("./yelpExample.png")}></img>
 								  
 								</div>
 								<div className="card-content">
@@ -69,7 +70,7 @@ class HomePage extends React.Component{
 							<div className="col s4">
 							  <div className="card medium">
 								<div className="card-image">
-								  <img src={require("../imgs/tripadvisorExample.png")}></img>
+								  <img src={require("./tripadvisorExample.png")}></img>
 
 								</div>
 								<div className="card-content">
@@ -93,7 +94,7 @@ class HomePage extends React.Component{
 							<div className="col s6">
 							  <div className="card medium">
 								<div className="card-image">
-								  <img src={require("../imgs/mapExample.png")}></img>
+								  <img src={require("./mapExample.png")}></img>
 								  
 								</div>
 								<div className="card-content">
@@ -105,7 +106,7 @@ class HomePage extends React.Component{
 							<div className="col s6">
 							  <div className="card medium">
 								<div className="card-image">
-								  <img src={require("../imgs/listExample.png")}></img>
+								  <img src={require("./listExample.png")}></img>
 								  
 								</div>
 								<div className="card-content">
@@ -123,4 +124,4 @@ class HomePage extends React.Component{
 	}
 };
 
-export default HomePage;
+export default AboutPage;

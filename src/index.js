@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { IndexRoute, Router, Route, hashHistory } from 'react-router';
+import { IndexRoute, Router } from 'react-router';
+import { HashRouter, Route, Link } from 'react-router-dom';
 import './css/index.css';
 import HomePage from './HomePage';
 import MapPage from './MapPage';
@@ -14,9 +15,9 @@ import AboutPage from './AboutPage';
 
 // Render DOM
 ReactDOM.render(
-        <Router history={hashHistory}>
+        <HashRouter>
             <Route path='/' component={App}>
-				<IndexRoute component={HomePage}/>
+                <Route exact path='home' component={HomePage} />
                 <Route path='home' component={HomePage}/>
                 <Route path='map' component={MapPage}/>
 				<Route path='list' component={ListPage}/>
@@ -26,6 +27,6 @@ ReactDOM.render(
 				<Route path='mod' component={ModPage}/>
 				<Route path='about' component={AboutPage}/>
             </Route>
-        </Router>,
+        </HashRouter>,
   document.getElementById('root')
 );

@@ -10,10 +10,11 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "reac
 
 
 // MapPage Component
-var MapPage = React.createClass({
-	getInitialState(){
-		return{mapItems:[], fileName:"", isUploading:false, uploadPicUrl:""}
-	},
+class MapPage extends React.Component{
+    constructor(props) {
+        super(props);
+		this.state = {mapItems:[], fileName:"", isUploading:false, uploadPicUrl:""}
+	}
 
 	// When component mounts, get the data and set the state of 'mapItems'
 	componentDidMount(){
@@ -24,19 +25,19 @@ var MapPage = React.createClass({
 			}
 		});
 		$('#map').animate({opacity: '1'});
-	},
+	}
 	
 	handleMarkerClick(key){
 		console.log($("#" + key + "label"))
 		$("#" + key + "label").hidden = "false"
 		$("#" + key + "marker").padding = "15px"
-	},
+	}
 	
 	getCookie(name) {
 	  var value = "; " + document.cookie;
 	  var parts = value.split("; " + name + "=");
 	  if (parts.length == 2) return parts.pop().split(";").shift();
-	},
+	}
 	
 	// Render a <MapItem> element for each element in the state
 	render() {
@@ -89,6 +90,6 @@ var MapPage = React.createClass({
 			</div>
 		);
 	}
-});
+};
 
 export default MapPage;

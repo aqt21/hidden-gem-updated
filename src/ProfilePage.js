@@ -5,14 +5,17 @@ import './css/Profile.css';
 import firebase from 'firebase';
 
 // ProfilePage Component
-var ProfilePage = React.createClass({
-	getInitialState(){
-		return {aboutUs:""};
-	},
+class ProfilePage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            aboutUs: ""
+        }
+	}
 
 	// When component mounts, get the data and set the state of 'homeItem'
 	componentDidMount(){
-		this.profilePageRef = firebase.database().ref('profilePage');
+        this.profilePageRef = firebase.database().ref('profilePage');
 		//get data from Firebase
 		
 		this.profilePageRef.on('value', (snapshot) => {
@@ -24,7 +27,7 @@ var ProfilePage = React.createClass({
 		console.log(this.state.aboutUs);
 		
 		$('#profile').animate({opacity: '1'}, "slow");
-	},
+	}
 	
 	// Render a <HomeItem> element
 	render() {
@@ -42,6 +45,6 @@ var ProfilePage = React.createClass({
 			</div>
 		);
 	}
-});
+}
 
 export default ProfilePage;

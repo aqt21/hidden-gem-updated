@@ -15,7 +15,7 @@ var HomePage = React.createClass({
 
 	// When component mounts, get the data and set the state of 'homeItem'
 	componentDidMount(){
-		this.homePageRef = firebase.database().ref('homePage');
+        this.homePageRef = firebase.database().ref('homePage');
 		//get data from Firebase
 		
 		this.homePageRef.on('value', (snapshot) => {

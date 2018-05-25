@@ -1,12 +1,12 @@
 // Sign out
 import React from 'react';
 
-var SignOut = React.createClass({
+class SignOut extends React.Component {
     render() {
         return(
             <a onClick={this.props.submit}>Sign Out</a>
         )
     }
-});
+}
 
 export default SignOut;

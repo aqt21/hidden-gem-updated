@@ -2,7 +2,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-var SignUpPage = React.createClass({
+class SignUpPage extends React.Componenet{
 
     render() {
         return(
@@ -25,6 +25,6 @@ var SignUpPage = React.createClass({
             </section>
         )
     }
-});
+}
 
 export default SignUpPage;

@@ -2,7 +2,7 @@
 import React from 'react';
 import $ from 'jquery';
 
-var SignInItem = React.createClass({
+class SignInItem extends React.Component {
 	
     render() {
         return(
@@ -21,6 +21,6 @@ var SignInItem = React.createClass({
             </div>
         )
     }
-});
+}
 
 export default SignInItem;

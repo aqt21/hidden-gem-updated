@@ -17,7 +17,7 @@ var MapPage = React.createClass({
 
 	// When component mounts, get the data and set the state of 'mapItems'
 	componentDidMount(){
-		this.mapRef = firebase.database().ref("Locations");
+        this.mapRef = firebase.database().ref("Locations");
 		this.mapRef.on("value", (snapshot)=> {
 			if(snapshot.val()){
 				this.setState({mapItems:snapshot.val()});

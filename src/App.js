@@ -70,7 +70,7 @@ class App extends React.Component{
 						</ul>
 						<nav>
 						  <div className="nav-wrapper">
-							<a href="#!" className="brand-logo">Logo</a>
+							<a href="#!" className="brand-logo">Hidden Gem</a>
 							<ul className="right hide-on-med-and-down">
 							  <li><Link className='link' activeClassName='active' to='/home'>Home</Link></li>
 							  <li><Link className='link' activeClassName='active' to='/map'>Map</Link></li>

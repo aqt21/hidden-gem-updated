@@ -16,7 +16,7 @@ class ListPage extends React.Component{
 	// When component mounts, get the data and set the state of 'listItems'
 	componentDidMount(){
 
-		this.listRef = firebase.database().ref("Locations");
+        this.listRef = firebase.database().ref("Locations");
 		
 		this.listRef.on("value", (snapshot)=> {
 			if(snapshot.val()){
@@ -60,7 +60,7 @@ class ListPage extends React.Component{
 	
 	handleUploadSuccess(filename){
 	  this.setState({avatar: filename, isUploading: false});
-	  firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({uploadPicUrl: url}));
+      firebase.storage().ref('images').child(filename).getDownloadURL().then(url => this.setState({uploadPicUrl: url}));
 
 	}
 	
@@ -125,7 +125,7 @@ class ListPage extends React.Component{
 									id="file-uploader"
 									accept="image/*"
 									randomizeFilename
-									storageRef={firebase.storage().ref("images")}
+                                    storageRef={firebase.storage().ref("images")}
 									onUploadStart={this.handleUploadStart}
 									onUploadError={this.handleUploadError}
 									onUploadSuccess={this.handleUploadSuccess}

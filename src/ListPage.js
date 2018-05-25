@@ -5,6 +5,7 @@ import './css/List.css';
 import ListItem from './ListItem';
 import firebase from "firebase";
 import FileUploader from 'react-firebase-file-uploader'; 
+import Materialize from 'materialize-css';
 
 // ListPage Component
 class ListPage extends React.Component{
@@ -14,7 +15,7 @@ class ListPage extends React.Component{
 	}
 
 	// When component mounts, get the data and set the state of 'listItems'
-	componentDidMount(){
+    componentDidMount() {
 
         this.listRef = firebase.database().ref("Locations");
 		
@@ -23,7 +24,8 @@ class ListPage extends React.Component{
 				this.setState({listItems:snapshot.val()});
 			}
 		});
-		$('#list').animate({opacity: '1'});
+        $('#list').animate({ opacity: '1' });
+
 	}
 	
 	createProduct(event) {
@@ -43,12 +45,6 @@ class ListPage extends React.Component{
 		event.target.reset();
 	}
 	
-	showProductInfo(event) {
-		$("#locationDetailsBackground").css("pointer-events","auto");
-		$("#locationDetailsBackground").animate({opacity: 0.7}, 300);
-		this.setState({currRefId: event.target.id, showInfo:true});
-	}
-	
 	handleUploadStart(){
 		this.setState({isUploading: true, fileName: $("#file-uploader").val().split('\\').pop()});
 	}
@@ -64,12 +60,6 @@ class ListPage extends React.Component{
 
 	}
 	
-	hideProduct() {
-		$("#locationDetailsBackground").css("pointer-events","none");
-		$("#locationDetailsBackground").animate({opacity: 0}, 300);
-		this.setState({showInfo:false});
-	}
-	
 	removeProduct(event) {
 		this.listRef.child(event.target.id).remove();
 	}
@@ -81,26 +71,7 @@ class ListPage extends React.Component{
 		
 		return (
 			<div id='list'>
-				<div className='container' id="list-container">
-					{(this.state.showInfo ?
-						<div id="locationDetails">
-							<div id="exitcontainer" onClick={this.hideProduct}>
-								<i className="fa fa-times exit" aria-hidden="true"></i>
-							</div>
-							<div id="locationImage">
-								<img src={this.state.listItems[currRef].imgurl} />
-							</div>
-
-							<h4>{this.state.listItems[currRef].title}</h4>
-							<p>{this.state.listItems[currRef].description}</p>
-							<p className="chip">Tag Example</p>
-							<p className="chip">Tag Example</p>
-							<p className="chip">Tag Example</p>
-						</div>
-						
-					: false
-					)}
-					
+				<div className='container' id="list-container"> 	
 					{(this.props.user ?
 					<div className="card-panel">
 						<form className="col s12 active" onSubmit = {this.createProduct}>
@@ -153,12 +124,11 @@ class ListPage extends React.Component{
 					
 					<div className="row">
 					{Object.keys(this.state.listItems).map((d) => {
-							return <ListItem user={this.props.user} key={d} productRef={d} data={this.state.listItems[d]} handleTrash={this.removeProduct} handleClick={this.showProductInfo}/>
+                            return <ListItem user={this.props.user} key={d} productRef={d} data={this.state.listItems[d]} handleTrash={this.removeProduct} currRef={currRef} />
 						})}
 					</div>
 				</div>
-				
-				<div id="locationDetailsBackground" onClick={this.hideProduct}></div>
+
 			</div>
 				
 		);

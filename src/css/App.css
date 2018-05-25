@@ -18,8 +18,6 @@ footer.page-footer {
 	margin: 0;
 }
 
-
-
 body {
 	background-color: #F2F2F2;
 }
@@ -107,6 +105,9 @@ input[type=text]:focus:not([readonly]), input[type=email]:focus, input[type=pass
     background: #6FCF97; 
 }
 
+.modal {
+	max-height: 80% !important;
+}
 
 
 /* Screen sizes */

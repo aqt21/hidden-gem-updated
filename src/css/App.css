@@ -1,0 +1,123 @@
+/* App */
+
+#home, #map, #list, #mod, #profile {
+	opacity: 0;
+}
+
+#home, #map, #mod, #profile {
+	/* margin-top: 64px; */
+	height: 100vmin;
+}
+
+footer.page-footer {
+	margin: 0 !important;
+}
+
+
+.children, #signin .row {
+	margin: 0;
+}
+
+
+
+body {
+	background-color: #F2F2F2;
+}
+
+#nav {
+	position: sticky;
+	top: 0;
+	z-index: 15;
+}
+
+a.dropdown-button {
+	overflow: hidden;
+}
+
+.nav-wrapper, footer, .btn {
+	background-color: #6FCF97 !important;
+}
+
+.nav-wrapper {
+	padding: 0 0 0 30px;
+	text-align: left;
+}
+
+a.link, .dropdown-button, .content a, .homelink {
+	text-transform: uppercase;
+}
+
+a.link {
+    color: #ffffff;
+	transition: 0.6s ease;
+}
+
+
+nav ul a:hover, nav ul li.active {
+    background-color: #529a70 !important;
+}
+
+h5, div {
+	font-family: Roboto, 'Century Gothic', 'Comic Sans';
+	/* text-align: center; */
+}
+
+/* Form colors */
+label.active {
+	color: #6FCF97 !important;
+}
+
+textarea:focus {
+  border-bottom: 1px solid #6FCF97 !important;
+
+  box-shadow: 0 1px 0 0 #6FCF97 !important;
+}
+
+input[type=text]:focus:not([readonly]), input[type=email]:focus, input[type=password]:focus{
+	border-bottom: 1px solid #6FCF97 !important;
+    box-shadow: 0 1px 0 0 #6FCF97 !important;
+}
+
+
+#signin div {
+	padding: 20px;
+}
+
+#signin-button {
+	margin-left: 5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: transparent; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #6FCF97;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #6FCF97; 
+}
+
+
+
+/* Screen sizes */
+@media (min-width: 768px) {
+	
+	.navbar {
+		display: block;
+	}
+
+	a.link, .dropdown-button{
+		padding: 0 30px  0 30px;
+	}
+	
+}

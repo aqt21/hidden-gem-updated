@@ -46,10 +46,14 @@ Autocomplete {
 #homeHeader {
 	margin: 0;
 	margin-bottom: 0px;
+	font-weight: 300;
+	letter-spacing: 11px;
 }
 
 #homeDescription {
 	font-size: 20px;
+	font-weight: 300;
+	letter-spacing: 7px;
 }
 
 #search-box .input-field, #filter-bar {

@@ -29,8 +29,10 @@ class SignUpPage extends React.Component {
 
     render() {
         return(
-            <div className="container" id="signin">
+			<div id='signup'>
+				<div className="container">
                 <SignUpItem submit={this.signUp} />
+            </div>
             </div>
         )
     }

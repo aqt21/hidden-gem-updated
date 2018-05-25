@@ -5,20 +5,26 @@ import $ from 'jquery';
 class SignInItem extends React.Component {
 	
     render() {
-        return(
-            <div className="container" id="signin">
-			<h3>SIGN IN</h3>
-                <form onSubmit={this.props.submit} className="col s4 authenticate" id="sign-up">
-                    <div className="row" id="inputs">
-						<input id="email" type="email" placeholder="Email" className="validate form col s4" />
-						<div className="col s1"></div>
-						<input id="password" type="password" placeholder="Password" className="validate form col s4" />
+		return (
+			<div id="signin-content">
+				<h4 id='signin-title'>SIGN IN</h4>
+				<div className="col s12 authenticate" id="signin-form">
+					<form onSubmit={this.props.submit}>
+						<div className="row">
+							<div className="input-field col s12">
+								<input id="email" type="email" className="validate" />
+								<label htmlFor="email">Email</label>
+							</div>
+							<div className="input-field col s12">
+								<input id="password" type="password" className="validate" />
+								<label htmlFor="password">Password</label>
+							</div>
+
+						</div>
 						<button id="signin-button" className="btn btn-primary">Sign In</button>
-						
-                    </div>
-                    
-                </form>
-            </div>
+					</form>
+				</div>
+			</div>
         )
     }
 }

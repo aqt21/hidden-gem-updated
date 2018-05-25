@@ -1,8 +1,53 @@
+/* Popup */
+.gm-style-iw {
+	max-width: 400px;
+	max-height: 150px;
+	text-overflow: ellipsis;
+
+	overflow: hidden;
+}
+
 .infoImg {
-		height: 75%;
-		width: 75%;
+	width: 100%;
+	height: 150px;
+	background-size: cover;
+
 }
 
 .infoData {
-		margin: auto;
+
+}
+
+.map-details {
+	overflow: auto;
+	
+}
+
+.md-left {
+	position: relative;
+	width: 45%;
+	float: left;
+}
+
+.md-right {
+	position: relative;
+	width: 55%;
+	float: left;
+	text-overflow: ellipsis;
+}
+
+.md-text {
+	padding-left: 20px;
+
+}
+
+.md-title {
+	font-size: 1.3rem;
+	font-weight: 400;
+	margin: 5px 0 10px 0;
+}
+
+.md-desc {
+	margin: 0 0 10px 0;
+	
 }

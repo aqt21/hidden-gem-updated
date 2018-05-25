@@ -27,25 +27,10 @@ class HomePage extends React.Component{
 		});
 		
 		$('#home').animate({opacity: '1'});
-		 $('.chips').material_chip();
-		  $('.chips-autocomplete').material_chip({
-			autocompleteOptions: {
-			  data: {
-				'Waterfall': null,
-				'Restaurant': null,
-				'Art': null,
-				'Outdoors': null,
-				'Indoors': null,
-				'24 hours': null,
-				'Family': null
-			  },
-			  limit: Infinity,
-			  minLength: 1
-			}
-		  });
-
+		
+       
 	}
-	
+
 	createCookie(name,value,days) {
 		if (days) {
 			var date = new Date();
@@ -75,9 +60,28 @@ class HomePage extends React.Component{
             .then(latLng => this.createCookie("latLng", latLng.lat + ":" + latLng.lng))
             .catch(error => console.error('Error', error))
     }
+
+    setChips() {
+        $('.chips').material_chip();
+        $('.chips-autocomplete').material_chip({
+            autocompleteOptions: {
+                data: {
+                    'Waterfall': null,
+                    'Restaurant': null,
+                    'Art': null,
+                    'Outdoors': null,
+                    'Indoors': null,
+                    '24 hours': null,
+                    'Family': null
+                },
+                limit: Infinity,
+                minLength: 1
+            }
+        });
+    }
 	// Render a <HomeItem> element
 	render() {
-
+        this.setChips();
 		return (
 			<div id='home'>	
 				<div className='container' id='search-box'>
@@ -119,7 +123,7 @@ class HomePage extends React.Component{
 
                             
                         </div>
-
+                        <div className="chips chips-autocomplete"></div>
 						<div id="homeWrapper">
 							<a className="waves-effect waves-light btn" id="homeBtn" ><Link className='link' activeClassName='active' to='map'>Find your Hidden Gems</Link></a>
 						</div>

@@ -9,7 +9,7 @@ import Materialize from "materialize-css";
 import './css/Submit.css';
 
 // ModPage Component
-class ModPage extends React.Component {
+class SubmitPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -19,8 +19,12 @@ class ModPage extends React.Component {
 			uploadPicUrl: "",
 			currRefId: "",
 			showInfo: false,
-			currTab: "Pending Review"
+			currTab: "Locations"
 		}
+		this.saveChanges = this.saveChanges.bind(this);
+		this.handleUploadStart = this.handleUploadStart.bind(this);
+		this.handleUploadSuccess = this.handleUploadSuccess.bind(this);
+		this.handleUploadError = this.handleUploadError.bind(this);
 	}
 
 	// When component mounts, get the data and set the state of 'listItems'
@@ -48,13 +52,15 @@ class ModPage extends React.Component {
 
 	saveChanges(event) {
 		event.preventDefault();
-		firebase.database().ref(this.currRefId).update({
+		console.log(this.listRef);
+		this.listRef.push({
 			title: event.target.elements["title"].value,
 			imgurl: this.state.uploadPicUrl,
 			description: event.target.elements["description"].value,
-			rating: event.target.elements["rating"].value,
+			address: event.target.elements["address"].value,
 			latitude: event.target.elements["latitude"].value,
-			longitude: event.target.elements["longitude"].value
+			longitude: event.target.elements["longitude"].value,
+			tags: event.target.elements["tags"].value
 		});
 
 		this.setState({ uploadPicUrl: "", fileName: "" });
@@ -63,7 +69,7 @@ class ModPage extends React.Component {
 	}
 
 	handleUploadStart() {
-		this.setState({ isUploading: true, fileName: $("#file-uploader").val().split('\\').pop() });
+		this.setState({ isUploading: true, fileName: $("#img-uploader").val().split('\\').pop() });
 	}
 
 	handleUploadError(error) {
@@ -77,23 +83,6 @@ class ModPage extends React.Component {
 
 	}
 
-	handlePending() {
-		this.setState({ currTab: "Pending Review" });
-	}
-	handleApproved() {
-		this.setState({ currTab: "Locations" });
-	}
-	handleDiscarded() {
-		this.setState({ currTab: "Discarded" });
-	}
-	removeProduct(event) {
-		this.listRef.child(event.target.id).remove();
-	}
-
-	changeText(event) {
-		Materialize.updateTextFields();
-	}
-
 	// Render a <ListItem> element for each element in the state
 	render() {
 		let currRef = this.state.currRefId;
@@ -105,10 +94,11 @@ class ModPage extends React.Component {
 						<h4 id='submit-title'>Submit New Location</h4>
 						<form className="col s12" onSubmit={this.saveChanges}>
 
-							<div className="input-field col s12">
+								<div className="input-field col s12">
+
 								<FileUploader
-									className="file-path validate"
-									id="file-uploader"
+									
+									id='img-uploader'
 									accept="image/*"
 									randomizeFilename
 									storageRef={firebase.storage().ref("images")}
@@ -117,7 +107,7 @@ class ModPage extends React.Component {
 									onUploadSuccess={this.handleUploadSuccess}
 									onProgress={this.handleProgress}
 								/>
-								<div className="btn waves-effect waves-light"><label id="imagebtn" htmlFor="file-uploader"></label>Change Image</div>
+								<div className="btn waves-effect waves-light"><label id="imagebtn" htmlFor="file-uploader"></label>Upload Image</div>
 
 								{(this.state.isUploading ?
 									<div>
@@ -133,7 +123,7 @@ class ModPage extends React.Component {
 							<br />
 							<div className="row">
 								<div className="input-field col s12">
-									<input id="title" type="text" onChange={this.changeText} />
+									<input id="title" type="text" />
 									<label className="active" htmlFor="title">Title</label>
 
 								</div>
@@ -141,34 +131,34 @@ class ModPage extends React.Component {
 
 							<div className="row">
 								<div className="input-field col s12" >
-									<textarea className="materialize-textarea" id="description" type="text" onChange={this.changeText} />
+									<textarea className="materialize-textarea" id="description" type="text" />
 									<label className="active" htmlFor="description">Description</label>
 								</div>
 							</div>
 
 							<div className="row">
 								<div className="input-field col s12">
-									<input id="rating" type="text" onChange={this.changeText} />
-									<label className="active" htmlFor="price">Rating</label>
+									<input id="address" type="text" />
+									<label className="active" htmlFor="address">Address</label>
 								</div>
 							</div>
 
 							<div className="row">
 								<div className="input-field col s6">
-									<input id="latitude" type="text" onChange={this.changeText} />
-									<label className="active" htmlFor="price">Latitude</label>
+									<input id="latitude" type="text" />
+									<label className="active" htmlFor="latitude">Latitude</label>
 								</div>
 
 								<div className="input-field col s6">
-									<input id="longitude" type="text" onChange={this.changeText} />
-									<label className="active" htmlFor="price">Longitude</label>
+									<input id="longitude" type="text" />
+									<label className="active" htmlFor="longitude">Longitude</label>
 								</div>
 							</div>
 
 							<div className="row">
 								<div className="input-field col s12">
-									<input id="filters" type="text" onChange={this.changeText} />
-									<label className="active" htmlFor="price">Filters</label>
+									<input id="tags" type="text" />
+									<label className="active" htmlFor="tags">Tags</label>
 								</div>
 							</div>
 
@@ -186,4 +176,4 @@ class ModPage extends React.Component {
 	}
 }
 
-export default ModPage;
+export default SubmitPage;

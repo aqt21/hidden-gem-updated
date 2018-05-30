@@ -10,7 +10,7 @@ class SignInItem extends React.Component {
 				<h4 id='signin-title'>SIGN IN</h4>
 				<div className="col s12 authenticate" id="signin-form">
 					<form onSubmit={this.props.submit}>
-						<div className="row">
+						<div className="row" >
 							<div className="input-field col s12">
 								<input id="email" type="email" className="validate" />
 								<label htmlFor="email">Email</label>

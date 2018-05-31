@@ -107,7 +107,7 @@ class SubmitPage extends React.Component {
 									onUploadSuccess={this.handleUploadSuccess}
 									onProgress={this.handleProgress}
 								/>
-								<div className="btn waves-effect waves-light"><label id="imagebtn" htmlFor="file-uploader"></label>Upload Image</div>
+								
 
 								{(this.state.isUploading ?
 									<div>

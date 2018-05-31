@@ -7,7 +7,13 @@ Autocomplete {
 	margin-top:20px;
 }
 
+#l-address {
+	color: grey;
+	margin-bottom: 35px;
+}
+
 #homeWrapper {
+	margin-top: 40px;
 	display: flex;
 	justify-content: center;
 }

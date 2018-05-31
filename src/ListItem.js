@@ -32,7 +32,7 @@ class ListItem extends React.Component {
 					</div>
 					<div className="card-content">
 						<span className="card-title">{this.props.data.title}</span>
-						<p>{this.props.data.description.substring(0, 125) + " ..."}</p>
+						
 					</div>
 				</div>
 				<div id='location-popup' className='modal'>

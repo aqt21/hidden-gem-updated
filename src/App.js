@@ -55,21 +55,7 @@ class App extends React.Component {
 			<div className='App'>
 
 				<div id='nav'>
-					<ul id="dropdown1" className="dropdown-content">
-						{this.state.user &&
-							<li><Link className='link' to='/profile'>Profile</Link></li>
-						}
-						{this.state.user &&
-							<li><SignOut submit={this.signOut} /></li>
-						}
-						{!this.state.user &&
-							<li><Link className='link' to='/sign-in'>Sign In</Link></li>
-						}
-						{!this.state.user &&
-							<li><Link className='link' to='/sign-up'>Sign Up</Link></li>
-						}
-
-					</ul>
+					
 					<nav>
 						<div className="nav-wrapper">
 							<a href="#!" className="brand-logo"><img src={require('./hg-icon.png')} /></a>
@@ -77,9 +63,7 @@ class App extends React.Component {
 								<li><Link className='link' to='/home'>Home</Link></li>
 								<li><Link className='link' to='/map'>Map</Link></li>
 								<li><Link className='link' to='/list'>List</Link></li>
-								<li><a className="dropdown-button" href="#!" data-activates="dropdown1">
-									<i id='profile-icon' className="material-icons">account_circle</i></a>
-								</li>
+								
 							</ul>
 						</div>
 					</nav>
@@ -107,22 +91,23 @@ class App extends React.Component {
 					<div className="container">
 						<div className="row">
 							<div className="col l6 s12">
-								<h5 className="white-text">Footer Content</h5>
-								<p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+								<h5 className="white-text">Hidden Gem</h5>
+								<p className="grey-text text-lighten-4">Discover your backyard</p>
 							</div>
 							<div className="col l4 offset-l2 s12">
 								<h5 className="white-text">Links</h5>
 								<ul>
 									<li><a className="grey-text text-lighten-3" href="/about">About Us</a></li>
-									<li><a className="grey-text text-lighten-3" href="/mod">Moderator Page</a></li>
 									<li><a className="grey-text text-lighten-3" href="/submit">Submit New Location</a></li>
+									<li><a className="grey-text text-lighten-3" href="/mod">Moderator Page</a></li>
+									
 								</ul>
 							</div>
 						</div>
 					</div>
 					<div className="footer-copyright">
 						<div className="container">
-							© 2018 Copyright Text
+							© 2018
 </div>
 					</div>
 				</footer>

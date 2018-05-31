@@ -125,7 +125,6 @@ class HomePage extends React.Component {
 
 
 							</div>
-							<div id='filter-bar' className="chips chips-autocomplete"></div>
 							<div id="homeWrapper">
 								<a className="waves-effect waves-light btn" id="homeBtn" ><Link className='link' activeClassName='active' to='map'>Find your Hidden Gems</Link></a>
 							</div>

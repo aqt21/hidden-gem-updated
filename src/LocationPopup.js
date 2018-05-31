@@ -5,17 +5,21 @@ import $ from 'jquery';
 class LocationPopup extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { data: '' }
+		this.state = { data: '', }
 	}
 
+	
 	changeEventData() {
 		$('#l-title').text(this.props.data.title);
 		$('#l-desc').text(this.props.data.description);
 		$('#l-img').attr("src", this.props.data.imgurl);
+		$('#l-address').text(this.props.data.address);
 	}
 
 	render() {
 		this.changeEventData();
+		console.log(this.props.data.tags);
+
 		return (
 			<div id="locationDetails">
 				<div id="locationImage">
@@ -23,10 +27,9 @@ class LocationPopup extends React.Component {
 				</div>
 				<div id='locationInfo'>
 					<h4 id='l-title'> </h4>
+					<p id='l-address'>  </p>
 					<p id='l-desc'> </p>
-					<p className="chip">Tag Example</p>
-					<p className="chip">Tag Example</p>
-					<p className="chip">Tag Example</p>
+
 				</div>
 			</div>
 		)

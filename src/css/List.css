@@ -12,7 +12,10 @@
 }
 
 .card {
-	height: 400px;
+	height: 300px;
+}
+.modal {
+	max-width: 30% !important;
 }
 
 .card-image {

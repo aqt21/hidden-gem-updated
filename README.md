@@ -1,3 +1,32 @@
+## Website URL:
+
+[Hiddengeminc.com](hiddengeminc.com)
+
+## Problem:
+
+It's become increasingly difficult to find new things to do around town when current search results are dominated by the top dogs. Searching on places such as Google or Yelp will always return the same results. In Seattle, when searching for "top 10 things to do in Seattle" the results are flooded with tourist attractions such as the Space Needle, Pike Place Market, and the Seattle Art Museum. Of course these attractions are great but they can get old to people who have already done them. Meanwhile, there are many places in Seattle worth seeing and experiencing that are hard to find through usual search results.
+
+## Solution: 
+
+Our solution is to compile a list of all of the "hidden gems" in the Pacific Northwest. Our database and presentation of our information will make it easy for our users to get past all the touristy attractions and find new things to do. Things such as "Paint the Town" in U-Village, Vance Creek Bridge in Shelton, and many others attractions will gain exposure. Our goal is to help the unknown but beautiful and fun attractions in the Pacific Northwest get the attention they deserve.
+
+## Abstract:  
+
+Hidden Gem is a resource for people looking to discover new places and activities in the Pacific Northwest. Instead of having the same list of 'touristy' activities pop up from the current databases, people can view and contribute to a growing list of unique and interesting experiences. Our resource will allow users to continuously awe themselves and create a closer connection between them and their city. Hidden Gem brings the lesser-known places to life and provides people with the information they need to plan their next adventure.
+
+## Features:
+
+- Submitting your current location will bring up local "hidden gems" in your area.
+- Clickable map icons that provide information on each hidden gem.
+- List view of all current submitted hidden gems in the area.
+- Clickable cards in list view that provide extra details such as address and description, as well as a photo.
+- "Submit a location" allows users to submit their very own hidden gems to share with the community
+- "Moderator Page" allows moderators to view submitted hidden gems and decide whether they are worthy to be added into the main page.
+
+## Design Decisions:
+
+- The website revolves primarily around a map and list view. The map view centers on the submitted location that the user inputs so that they can see all of the places that are around them. It gives the user an idea of what their environment is like. A list view is provided to give the user all of the information at once without having to click on each icon. The thumbnails of each location help attract the user to click on the cards to read more information. The website is user submitted because since we are aiming to highlight "hidden" gems, the people that know best what the hidden gems are, are our users. There is a moderator page to keep track of duplicates, fictional locations or anything that is not legitimate. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

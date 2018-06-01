@@ -126,7 +126,7 @@ class HomePage extends React.Component {
 
 							</div>
 							<div id="homeWrapper">
-								<a className="waves-effect waves-light btn" id="homeBtn" ><Link className='link' activeClassName='active' to='map'>Find your Hidden Gems</Link></a>
+								<Link className=" link waves-effect waves-light btn" id="homeBtn" activeClassName='active' to='map'>Find your Hidden Gems</Link>
 							</div>
 						</form>
 					</div>
